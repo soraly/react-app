@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Login from './doc/LoginControl'
 
 class App extends Component {
   constructor(){
@@ -10,7 +11,7 @@ class App extends Component {
   }
   render(){
     return <div>
-     
+     <Login></Login>
     </div>
   }
 }
