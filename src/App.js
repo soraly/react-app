@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Calculator  from './doc/stateUp'
-
-
+import ThinkReact  from './doc/thinkReact'
 
 class App extends Component {
   constructor(){
@@ -13,9 +11,16 @@ class App extends Component {
   }
   
   render(){
-    return <Calculator></Calculator>
+    
+    return <div>
+    
+    <ThinkReact></ThinkReact>
+  </div>
+    
   }
 }
+
+
 
 
 export default App;
