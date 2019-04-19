@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "react-codemirror": "^1.0.0",
     "react-scripts": "2.1.5"
   },
   "dependencies": {
+    "codemirror": "^5.45.0",
     "react": "^16.8.2",
+    "react-codemirror2": "^5.1.0",
     "react-dom": "^16.8.2"
   },
   "scripts": {

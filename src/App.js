@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import ThinkReact  from './doc/thinkReact'
+import Clock2  from './doc/clock3'
 
 class App extends Component {
   constructor(){
@@ -14,7 +14,7 @@ class App extends Component {
     
     return <div>
     
-    <ThinkReact></ThinkReact>
+    <Clock2></Clock2>
   </div>
     
   }
