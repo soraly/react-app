@@ -13,6 +13,9 @@ class Clock extends Component {
             counter: 0
         }
     }
+    static defaultProps = {
+        increment: 100
+    }
     // 属性初始化器语法: This syntax ensures `this` is bound within handleClick.
     // Warning: this is *experimental* syntax.
     handleButton=()=>{
@@ -27,7 +30,7 @@ class Clock extends Component {
             <div>
                 <h2>It is {this.state.time}.</h2>
                 <h4>计数器：{this.state.counter}</h4>
-                <Button handleButton={this.handleButton} />
+                <Button handleButton={this.handleButton}  />
             </div>
         )
     }

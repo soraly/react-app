@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock2  from './doc/clock3'
+import Clock from './doc/multipleInput'
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      
+
     }
   }
-  
-  render(){
-    
+
+  render() {
+
     return <div>
-    
-    <Clock2></Clock2>
-  </div>
-    
+      <Clock increment='10' hello=''></Clock>
+    </div>
+
   }
 }
 

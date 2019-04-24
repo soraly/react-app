@@ -15,7 +15,7 @@ class Clock extends Component {
 		super();
 
 		this.state = {
-			value: 'hello,hello,hello,hello,hello,hello,'
+			value: ''
 
 		}
 	}
@@ -27,8 +27,12 @@ class Clock extends Component {
 
 	render() {
 		var options = {
+			lineNumbers: true,
+
+			renderLine: 200,
 			mode: 'javascript',
 			readOnly: false,
+			
 		};
 		return (
 			<div>
@@ -37,16 +41,13 @@ class Clock extends Component {
 					value={this.state.value}
 					options={options}
 					onBeforeChange={(editor, data, value) => {
+						console.log('start',value)
 						this.setState({ value });
 					}}
 					onChange={(editor, value) => {
 						console.log('controlled', { value });
 					}}
-					scroll={{
-						x: 50,
-						y: 50
-					  }}
-					  onScroll={(editor, data) => {}}
+					
 				/>
 			</div>
 		)
