@@ -170,7 +170,7 @@ export default class thinkReact extends Component {
                     inputVal={this.state.inputVal}
                     onCheckChange={this.handleCheck.bind(this)}
                     onInputChange={this.handleInput.bind(this)}></InputSearch>
-                    <ProductTable/>
+                <ProductTable/>
                 {/* <Goods
                     inputVal={this.state.inputVal}
                     checkVal={this.state.checkVal}

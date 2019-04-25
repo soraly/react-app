@@ -27,6 +27,7 @@ class MultiInput extends Component {
                 <h2>hello,world</h2>
                 <span>xiang</span>
             </Bigcontain>
+            <Hero></Hero>
         </div>
     }
 }
@@ -38,9 +39,28 @@ class Bigcontain extends Component {
         }
     }
     render(){
+        console.log(this.props);
+        const {id,...prop} = this.props;
+        console.log(id,prop);
         return <div>
-            <div className='title'>{this.props.children}</div>
+            <div className='title'>id={id}{prop.children}</div>
         </div>
+    }
+}
+class Hero extends Component {
+    constructor(){
+        super();
+        this.state = {
+            
+        }
+    }
+    clickfn(){
+        console.log('clicked..')
+    }
+    render(){
+        return <Bigcontain id='123' onClick={this.clickfn.bind(this)}>
+            <h2>i am big contain</h2>
+        </Bigcontain>
     }
 }
 export default MultiInput
