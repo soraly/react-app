@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 var products = [
     { category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
@@ -10,13 +11,20 @@ var products = [
     { category: 'Sporting Goods', price: '$19.99', stocked: false, name: 'pingpang' },
 ];
 
+
 class FilterableProductTable extends Component {
     constructor() {
         super();
         this.state = {
             filterText: '',
-            inStockOnly: false
+            inStockOnly: false,
+            loading: true,
         }
+    }
+    componentDidMount(){
+        this.props.promise.then(value=>{
+            this.setState({loading: false})
+        })
     }
     handleInput(val){
         this.setState({
@@ -29,23 +37,32 @@ class FilterableProductTable extends Component {
         })
     }
     render() {
+        if(this.state.loading){
+            return <span>i am loading...</span>
+        }
         return (<div>
             <SearchBar filterText={this.state.filterText} 
-            onFilterTextInput={this.handleInput.bind(this)} 
-            onCheckChange={this.handleCheck.bind(this)}
-            inStockOnly={this.state.inStockOnly} />
+                onFilterTextInput={this.handleInput.bind(this)} 
+                onCheckChange={this.handleCheck.bind(this)}
+                inStockOnly={this.state.inStockOnly} 
+               
+            ><Hello/></SearchBar>
             <ProductTable 
-            filterText={this.state.filterText}
-            inStockOnly={this.state.inStockOnly}
-            products={products} />
+                filterText={this.state.filterText}
+                inStockOnly={this.state.inStockOnly}
+                products={products} />
+            <ListOfTenThings />
         </div>)
     }
 }
 
+function Hello(){
+    return <span style={{fontSize: '24px'}}>hello</span>
+}
 class SearchBar extends Component {
     handleInput(event){
         var type = event.target.type;
-        if(type==='text'){
+        if(type ==='text'){
             this.props.onFilterTextInput && this.props.onFilterTextInput(event.target.value);
         }else if(type==='checkbox') {
             this.props.onCheckChange && this.props.onCheckChange(event.target.checked);
@@ -61,11 +78,22 @@ class SearchBar extends Component {
                     {' '}
                     Only show products in stock
                 </p>
+                {this.props.children}
+                {console.log(this.props.children)}
             </div>
         )
     }
 }
 
+SearchBar.propTypes = {
+    inStockOnly: PropTypes.bool,
+    onCheckChange: PropTypes.func.isRequired,
+    hehe: PropTypes.string.isRequired,
+    children: PropTypes.element.isRequired
+}
+SearchBar.defaultProps = {
+    hehe: 'hehe'
+}
 class ProductTable extends Component {
     render() {
         var list = this.props.products, rows=[],lastCategory=null;
@@ -114,5 +142,21 @@ class ProductRow extends Component {
             )
     }
 }
+
+function Repeat(props) {
+    let items = [];
+    for (let i = 0; i < props.numTimes; i++) {
+      items.push(props.children(i));
+    }
+    return <div>{items}</div>;
+  }
+  
+  function ListOfTenThings() {
+    return (
+      <Repeat numTimes={10}>
+        {(index) => <div key={index}>This is item {index} in the list</div>}
+      </Repeat>
+    );
+  }
 
 export default FilterableProductTable
