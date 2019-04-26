@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './doc/thinkReact.4.25'
+import Clock from './doc/todolist'
 import $ from 'jquery'
 
 class App extends Component {
