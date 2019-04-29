@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './doc/todolist'
+import Clock from './doc/todolist_score'
 import $ from 'jquery'
+import EventEmitter  from 'events'
+
+// class MyEmitter extends EventEmitter {
+//   test(){
+//     console.log('hehe')
+//   }
+//   constructor(args){
+//     super();
+//     console.log(args,'args');
+//     this.name = args.name;
+//     this.value = 'val..'
+//   }
+// }
+
+
+const emitter = new EventEmitter({name:'xiang'});
+
+emitter.on('uploaddone',function(a,b){
+  console.log(a,b,this);
+  //this.test()
+})
+
+emitter.emit('uploaddone','xixi','haha')
 
 class App extends Component {
   constructor() {
