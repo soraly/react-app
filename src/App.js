@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './doc/todolist_score'
+import Clock from './doc/todoList/demo1'
 import $ from 'jquery'
 import EventEmitter  from 'events'
 
@@ -20,7 +20,7 @@ import EventEmitter  from 'events'
 const emitter = new EventEmitter({name:'xiang'});
 
 emitter.on('uploaddone',function(a,b){
-  console.log(a,b,this);
+  //console.log(a,b,this);
   //this.test()
 })
 
