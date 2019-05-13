@@ -5,7 +5,7 @@ class Demo1 extends Component  {
         super();
         this.state = {
             todolist: [],
-            inputVal: 123
+            inputVal: 'enter some...'
         }
     }
     handleInput(val){
@@ -14,7 +14,7 @@ class Demo1 extends Component  {
     handleButton(){
         var obj = {id: this.state.todolist.length+1, name: this.state.inputVal};
         this.state.todolist.push(obj);
-        this.setState({todolist: this.state.todolist});
+        this.setState({todolist: this.state.todolist,inputVal: ''});
     }
     render(){
         return (<div>
@@ -31,6 +31,7 @@ class Demo1 extends Component  {
 class AddToDo extends Component {
     handleBtnClick(e){
         e.preventDefault();
+        this.refs.inputText.focus()
         this.props.onButton()
     }
     handelInputChange(e){
@@ -39,7 +40,7 @@ class AddToDo extends Component {
     render(){
         return (
             <form>
-                <input value={this.props.inputVal} onChange={this.handelInputChange.bind(this)} type="text"/>  
+                <input value={this.props.inputVal} ref='inputText' onChange={this.handelInputChange.bind(this)} type="text"/>  
                 <button onClick={this.handleBtnClick.bind(this)}>ADD</button>
             </form>
         )
