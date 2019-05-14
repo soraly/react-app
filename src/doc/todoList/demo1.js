@@ -54,7 +54,7 @@ class TodoList extends Component {
             });
         return (
             <ul>
-                {items}
+                {items} 
             </ul>
             
         )
@@ -63,7 +63,7 @@ class TodoList extends Component {
 class TodoItem extends Component {
     render(){
         return (
-            <li>{this.props.item.name}</li>
+            <li>{this.props.item.name} <button>X</button></li>
         )
     }
 }
