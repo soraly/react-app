@@ -16,6 +16,14 @@ class Demo1 extends Component  {
         this.state.todolist.push(obj);
         this.setState({todolist: this.state.todolist,inputVal: ''});
     }
+    handleTodoListButton(index){
+        var num;
+        this.state.todolist.forEach((item,key)=>{
+            item.id === index && (num=key);
+        })
+        this.state.todolist.splice(num,1);
+        this.setState({todolist: this.state.todolist});
+    }
     render(){
         return (<div>
             <AddToDo 
@@ -23,7 +31,9 @@ class Demo1 extends Component  {
             onInput={this.handleInput.bind(this)} 
             onButton={this.handleButton.bind(this)}
             />
-            <TodoList todolist={this.state.todolist} />
+            <TodoList 
+            onTodoListButton={this.handleTodoListButton.bind(this)}
+            todolist={this.state.todolist} />
         </div>)
     }
 }
@@ -31,8 +41,8 @@ class Demo1 extends Component  {
 class AddToDo extends Component {
     handleBtnClick(e){
         e.preventDefault();
-        this.refs.inputText.focus()
-        this.props.onButton()
+        this.refs.inputText.focus();
+        this.props.inputVal && this.props.onButton();
     }
     handelInputChange(e){
         this.props.onInput(e.target.value);
@@ -48,9 +58,12 @@ class AddToDo extends Component {
 }
 
 class TodoList extends Component {
+    handleTodoitemButton(index){
+        this.props.onTodoListButton(index)
+    }
     render(){
         var items = this.props.todolist.map(item=>{
-                return <TodoItem key={item.id} item={item}/>
+                return <TodoItem onTodoitemButton={this.handleTodoitemButton.bind(this)} key={item.id} index={item.id} item={item}/>
             });
         return (
             <ul>
@@ -61,9 +74,12 @@ class TodoList extends Component {
     }
 }
 class TodoItem extends Component {
+    handleButtonClick(index,event){
+        this.props.onTodoitemButton(index);
+    }
     render(){
         return (
-            <li>{this.props.item.name} <button>X</button></li>
+            <li>{this.props.item.name} <button onClick={this.handleButtonClick.bind(this,this.props.index)}>X</button></li>
         )
     }
 }
