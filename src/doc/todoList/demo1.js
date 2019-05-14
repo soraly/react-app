@@ -79,7 +79,7 @@ class TodoItem extends Component {
     }
     render(){
         return (
-            <li>{this.props.item.name} <button style={{marginLeft: '10px'}} onClick={this.handleButtonClick.bind(this,this.props.index)}>X</button></li>
+            <li>{this.props.item.name} <button style={{marginLeft: '15px'}} onClick={this.handleButtonClick.bind(this,this.props.index)}>X</button></li>
         )
     }
 }
