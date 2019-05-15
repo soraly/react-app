@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './doc/todoList/demo1'
+import Clock from './doc/todoList/demo3_event_ruanyifeng'
 import $ from 'jquery'
 import EventEmitter  from 'events'
-
-// class MyEmitter extends EventEmitter {
-//   test(){
-//     console.log('hehe')
-//   }
-//   constructor(args){
-//     super();
-//     console.log(args,'args');
-//     this.name = args.name;
-//     this.value = 'val..'
-//   }
-// }
-
 
 const emitter = new EventEmitter({name:'xiang'});
 
