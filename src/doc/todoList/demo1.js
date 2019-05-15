@@ -5,7 +5,7 @@ class Demo1 extends Component  {
         super();
         this.state = {
             todolist: [],
-            inputVal: 'enter some...'
+            inputVal: ''
         }
     }
     handleInput(val){
@@ -50,7 +50,11 @@ class AddToDo extends Component {
     render(){
         return (
             <form>
-                <input value={this.props.inputVal} ref='inputText' onChange={this.handelInputChange.bind(this)} type="text"/>  
+                <input 
+                value={this.props.inputVal} 
+                ref='inputText' 
+                onChange={this.handelInputChange.bind(this)} 
+                placeholder='enter some thing...' type="text"/>  
                 <button onClick={this.handleBtnClick.bind(this)}>ADD</button>
             </form>
         )
