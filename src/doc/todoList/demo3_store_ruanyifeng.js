@@ -5,8 +5,9 @@ class MyEmitter extends EventEmitter {
         super();
         this.nextId = 3;
         this.itemList = [
-            { id: 1, name: 'xixjf',done: true },
-            { id: 2, name: 'eaedda' },
+            { id: 1, name: 'eat dinner',done: true },
+            { id: 2, name: 'learn react',done: false },
+            { id: 3, name: 'running...',done: true },
         ];
     }
     addChangeListener(callback) {
