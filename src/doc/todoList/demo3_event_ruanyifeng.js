@@ -28,7 +28,7 @@ class AddToDo extends Component {
     render() {
         return (
             <form>
-                <input type="text" ref='inputText' />
+                <input style={{marginRight: '10px'}} type="text" ref='inputText' />
                 <button onClick={this.handleBtnClick.bind(this)}>ADD</button>
             </form>
         )
