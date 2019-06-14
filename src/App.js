@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './doc/todoList/demo3_event_ruanyifeng'
+import Clock from './doc/todoList/demo0614'
 import $ from 'jquery'
 import EventEmitter  from 'events'
 

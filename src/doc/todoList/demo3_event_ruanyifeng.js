@@ -29,7 +29,7 @@ class AddToDo extends Component {
         return (
             <form>
                 <input style={{marginRight: '10px'}} type="text" ref='inputText' />
-                <button onClick={this.handleBtnClick.bind(this)}>ADD</button>
+                <button onClick={this.handleBtnClick.bind(this)}>ADD</button>   
             </form>
         )
     }
