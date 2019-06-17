@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './router/demo2_nest'
+import Clock from './router/demo1_basic'
 import $ from 'jquery'
 import EventEmitter  from 'events'
 

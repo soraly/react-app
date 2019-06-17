@@ -1,18 +1,20 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-function News(){
+const Movie = React.lazy(() => import('./movies'))
+
+function News() {
     return <div>i am news</div>
 }
-function Sports(){
+function Sports() {
     return <div>look at sports,thank you</div>
 }
-function Home({match}){
-    console.log(match,'item')
+function Home({ match }) {
+    console.log(match, 'item')
     return <div>Home,this is Home</div>
 }
-function Test(){
-    var obj = {marginLeft: '10px'}
+function Test() {
+    var obj = { marginLeft: '10px' }
     return (
         <Router>
             hello
@@ -20,11 +22,16 @@ function Test(){
                 <Link to='/' style={obj}>Home</Link>
                 <Link to='/news' style={obj}>news</Link>
                 <Link to='/sport' style={obj}>sports</Link>
+                <Link to='/movie' style={obj}>movies</Link>
             </p>
             <div>
-                <Route path='/' exact component={Home}></Route>
-                <Route path='/news' component={News}></Route>
-                <Route path='/sport' component={Sports}></Route>
+                <Suspense fallback={<div>loading...</div>}>
+                    <Route path='/' exact component={Home}></Route>
+                    <Route path='/news' component={News}></Route>
+                    <Route path='/movie' component={Movie}></Route>
+                    <Route path='/sport' component={Sports}></Route>
+                </Suspense>
+
             </div>
         </Router>
     )
