@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 const Movie = React.lazy(() => import('./movies'))
@@ -17,7 +17,6 @@ function Test() {
     var obj = { marginLeft: '10px' }
     return (
         <Router>
-            hello
             <p>
                 <Link to='/' style={obj}>Home</Link>
                 <Link to='/news' style={obj}>news</Link>
@@ -36,5 +35,22 @@ function Test() {
         </Router>
     )
 }
-
-export default Test
+class Demo extends Component {
+    constructor(){
+        super();
+    }
+    shouldComponentUpdate(nextprop){
+        console.log(nextprop,'nextprop');
+        return false
+    }
+    render(){
+        return (
+            <div>
+                React <br/>
+                <p>{this.props.name}</p>
+                <Test /> 
+            </div>
+        )
+    }
+}   
+export default Demo
