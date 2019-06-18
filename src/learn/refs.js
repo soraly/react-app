@@ -6,17 +6,20 @@ class Refs extends Component {
         this.state = {
 
         }
+        //Refs是使用React.createRef()创建的，并通过ref属性附加到React元素（HTML元素或者class组件）。
+        //将Refs赋值给实例属性，可以方便地在整个组件中引用他们
         this.inp = React.createRef();
         this.dialog = React.createRef();
+        //回调Refs，将函数传给ref，然后在实例属性中获得对React元素的引用
         this.setTextInputRef = element => {
             this.textInput = element
         }
+        this.setDialogRef = element => this.dialogElement = element;
     }
     componentDidMount() {
         //获取焦点
         this.inp.current.focus();
-        this.dialog.current.sayHello();
-        console.log(this.textInput)
+        console.log(this.dialogElement.sayHello());
     }
     render() {
         return <div>
@@ -26,10 +29,12 @@ class Refs extends Component {
                 <p>
                     <button ref={this.setTextInputRef} >click me ..</button>
                 </p>
-                <Dialog ref={this.dialog}>
+                {/* 将函数传给子组件，父元素可以获得子组件中ref设置的那个元素的引用 */}
+                <Dialog ref={this.setDialogRef} h2Ref={element=>this.h2Element = element}>
                     <ul>
                         <li>aaa</li>
                         <li>bbb</li>
+                        <li>ccc</li>
                     </ul>
                 </Dialog>
             </div>
@@ -44,7 +49,7 @@ class Dialog extends Component {
     render() {
         return (
             <div>
-                <h2>this is a dialog</h2>
+                <h2 ref={this.props.h2Ref}>this is a dialog</h2>
                 {this.props.children}
             </div>
         )
