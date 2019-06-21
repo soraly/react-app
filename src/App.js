@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import Clock from './learn/refs'
+import Clock from './learn/context'
 import $ from 'jquery'
 import EventEmitter  from 'events'
 
@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     
     return <div>
-      <Clock name={this.state.name} promise={$.ajax({url: 'https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}'})}></Clock>
+      <Clock age='20' name={this.state.name} promise={$.ajax({url: 'https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}'})}></Clock>
     </div>
   }
 }
