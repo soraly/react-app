@@ -13,7 +13,8 @@ class App extends Component {
     }
     render() {
         return (
-            <Provider>
+            // 不指定value，Consumer也读取不到默认值，奇怪。。
+            <Provider value='red'>  
                     <Page />
                 </Provider>
         )
