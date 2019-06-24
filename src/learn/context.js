@@ -38,7 +38,7 @@ class Dialog extends Component {
         super()
     }
     componentDidMount(){
-        console.log(this.context,'this.context')
+        console.log(this.context, 'this.context')
     }
     render() {
         return (
@@ -60,7 +60,7 @@ class Avatar extends Component {
     constructor(){
         this.state = {
             name: 'xiang',
-            age: 20
+            age: ''
         }
     }
 }
